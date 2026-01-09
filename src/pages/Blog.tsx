@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactElement } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Section from '../components/Section';
 import Card from '../components/Card';
@@ -34,7 +34,7 @@ const Blog = () => {
   // Simple markdown-like content parser
   const renderContent = (content: string) => {
     const lines = content.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: ReactElement[] = [];
     let currentParagraph: string[] = [];
     let codeBlock: string[] = [];
     let currentList: string[] = [];
@@ -64,7 +64,7 @@ const Blog = () => {
       }
     };
 
-    lines.forEach((line, index) => {
+    lines.forEach((line) => {
       const trimmed = line.trim();
       
       if (trimmed.startsWith('```')) {
