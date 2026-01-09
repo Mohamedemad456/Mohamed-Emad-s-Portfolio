@@ -94,14 +94,14 @@ const Contact = () => {
             {/* Contact Form */}
             <motion.div variants={itemVariants}>
               <Card>
-                <h3 className="text-2xl font-bold text-slate-800 mb-8 text-center">
+                <h3 className="text-2xl font-bold text-text mb-8 text-center">
                   Send a Message
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
+                      className="block text-sm font-semibold text-text mb-2"
                     >
                       Name
                     </label>
@@ -113,13 +113,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="Your Name"
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-600/20 focus:border-cyan-600 transition-all text-center"
+                      className="w-full px-4 py-3 bg-card border border-border rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-purple/20 focus:border-purple transition-all text-center"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
+                      className="block text-sm font-semibold text-text mb-2"
                     >
                       Email
                     </label>
@@ -131,13 +131,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="your@email.com"
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-600/20 focus:border-cyan-600 transition-all text-center"
+                      className="w-full px-4 py-3 bg-card border border-border rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-purple/20 focus:border-purple transition-all text-center"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-semibold text-slate-700 mb-2"
+                      className="block text-sm font-semibold text-text mb-2"
                     >
                       Message
                     </label>
@@ -149,7 +149,7 @@ const Contact = () => {
                       required
                       rows={5}
                       placeholder="How can I help you?"
-                      className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-cyan-600/20 focus:border-cyan-600 resize-none transition-all text-center"
+                      className="w-full px-4 py-3 bg-card border border-border rounded-xl text-text focus:outline-none focus:ring-2 focus:ring-purple/20 focus:border-purple resize-none transition-all text-center"
                     />
                   </div>
                   <Button
@@ -174,10 +174,10 @@ const Contact = () => {
             {/* Social Links */}
             <motion.div variants={itemVariants}>
               <Card className="h-full flex flex-col justify-center">
-                <h3 className="text-2xl font-bold text-slate-800 mb-8 text-center">
+                <h3 className="text-2xl font-bold text-text mb-8 text-center">
                   Connect With Me
                 </h3>
-                <p className="text-slate-600 mb-10 text-center leading-relaxed">
+                <p className="text-textSecondary mb-10 text-center leading-relaxed">
                   Feel free to reach out through any of these channels. I'm
                   always open to discussing new projects, creative ideas, or
                   opportunities to be part of your vision.
@@ -193,11 +193,13 @@ const Contact = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      whileHover={{ scale: 1.02, backgroundColor: 'rgba(8, 145, 178, 0.05)' }}
-                      className="flex items-center justify-center p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-cyan-600/30 transition-all duration-200 group"
+                      whileHover={{ scale: 1.02 }}
+                      className="flex items-center justify-center p-4 bg-card rounded-xl border border-border hover:bg-purple-light hover:border-purple/30 transition-all duration-200 group"
                     >
-                      <social.icon className="w-5 h-5 mr-3 text-cyan-600 group-hover:scale-110 transition-transform" />
-                      <span className="text-slate-700 font-semibold">
+                      <social.icon
+                        className={`w-5 h-5 mr-3 ${index % 2 === 0 ? 'text-green' : 'text-purple'} group-hover:scale-110 transition-transform`}
+                      />
+                      <span className="text-text font-semibold">
                         {social.name}
                       </span>
                     </motion.a>

@@ -24,15 +24,15 @@ const Button = ({
   type = 'button',
 }: ButtonProps) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-600 text-center';
+    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple text-center';
   
   const variants = {
     primary:
-      'bg-linear-to-r from-cyan-600 to-purple-600 text-white hover:from-cyan-700 hover:to-purple-700 shadow-sm hover:shadow-md',
+      'bg-green text-white hover:bg-green-dark shadow-sm hover:shadow-md',
     secondary:
-      'bg-linear-to-r from-purple-600 to-emerald-600 text-white hover:from-purple-700 hover:to-emerald-700 shadow-sm hover:shadow-md',
+      'bg-purple text-white hover:bg-purple-dark shadow-sm hover:shadow-md',
     outline:
-      'border-2 border-cyan-600 text-cyan-600 hover:bg-cyan-50 hover:border-cyan-700',
+      'border-2 border-purple text-purple hover:bg-purple-light hover:border-purple-dark',
   };
 
   const sizes = {

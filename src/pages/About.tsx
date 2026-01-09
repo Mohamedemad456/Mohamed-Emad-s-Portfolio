@@ -50,18 +50,18 @@ const About = () => {
           className="max-w-3xl mx-auto"
         >
           <Card className="text-center">
-            <p className="text-lg text-slate-600 leading-relaxed mb-4">
+            <p className="text-lg text-textSecondary leading-relaxed mb-4">
               I'm a passionate Full Stack Developer with over 2 years of
               experience building modern web applications. I love creating
               solutions that are not only functional but also beautiful and
               user-friendly.
             </p>
-            <p className="text-lg text-slate-600 leading-relaxed mb-4">
+            <p className="text-lg text-textSecondary leading-relaxed mb-4">
               My expertise spans across the entire development stack, from
               crafting pixel-perfect UIs with React and TypeScript to building
               robust backend systems with Node.js and various databases.
             </p>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg text-textSecondary leading-relaxed">
               When I'm not coding, I enjoy contributing to open-source projects,
               writing technical articles, and sharing knowledge with the
               developer community.
@@ -80,7 +80,7 @@ const About = () => {
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="absolute left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-cyan-600 via-purple-600 to-emerald-600 origin-top"
+              className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-green-purple origin-top"
             />
             
             <motion.div
@@ -102,19 +102,19 @@ const About = () => {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2, type: 'spring' }}
-                    className="absolute left-6 top-2 w-4 h-4 bg-purple-600 rounded-full border-4 border-white"
+                    className="absolute left-6 top-2 w-4 h-4 bg-purple rounded-full border-4 border-bg"
                   />
                   
                   <Card delay={index * 0.1}>
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                      <span className="text-cyan-600 font-bold text-lg mb-2 md:mb-0">
+                      <span className="text-green font-bold text-lg mb-2 md:mb-0">
                         {event.year}
                       </span>
-                      <h3 className="text-xl font-semibold text-slate-800">
+                      <h3 className="text-xl font-semibold text-text">
                         {event.title}
                       </h3>
                     </div>
-                    <p className="text-slate-600">{event.description}</p>
+                    <p className="text-textSecondary">{event.description}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -138,10 +138,14 @@ const About = () => {
               <motion.div key={category.name} variants={itemVariants}>
                 <Card delay={categoryIndex * 0.1} className="h-full">
                   <div className="flex items-center justify-center mb-6">
-                    <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center mr-3">
-                      <category.icon className="w-6 h-6 text-cyan-600" />
+                    <div
+                      className={`w-10 h-10 rounded-lg flex items-center justify-center mr-3 ${
+                        categoryIndex % 2 === 0 ? 'bg-green-light' : 'bg-purple-light'
+                      }`}
+                    >
+                      <category.icon className={`w-6 h-6 ${categoryIndex % 2 === 0 ? 'text-green-dark' : 'text-purple-dark'}`} />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-800">
+                    <h3 className="text-xl font-bold text-text">
                       {category.name}
                     </h3>
                   </div>
@@ -154,7 +158,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ delay: categoryIndex * 0.1 + idx * 0.05 }}
                         whileHover={{ scale: 1.05 }}
-                        className="px-4 py-1.5 bg-white border border-slate-200 rounded-full text-sm font-medium text-slate-600 hover:border-cyan-600/30 hover:text-cyan-600 transition-all flex items-center justify-center cursor-default shadow-xs"
+                        className="px-4 py-1.5 bg-purple-light border border-purple-light rounded-full text-sm font-medium text-purple-dark hover:border-purple hover:text-purple-dark transition-all flex items-center justify-center cursor-default shadow-xs"
                       >
                         {skill.name}
                       </motion.span>

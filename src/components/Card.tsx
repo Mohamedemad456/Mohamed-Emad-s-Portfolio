@@ -17,9 +17,9 @@ const Card = ({ children, className = '', hover = true, delay = 0, onClick }: Ca
       transition={{ duration: 0.5, delay }}
       whileHover={hover ? { y: -4, transition: { duration: 0.2 } } : {}}
       onClick={onClick}
-      className={`bg-white rounded-xl p-6 border border-slate-200 shadow-xs ${
+      className={`bg-card rounded-xl p-6 border border-border shadow-xs ${
         hover
-          ? 'transition-all duration-300 hover:border-cyan-600/30 hover:shadow-lg hover:shadow-slate-200/50'
+          ? 'transition-all duration-300 hover:border-green/40 hover:ring-1 hover:ring-purple/20 hover:shadow-lg'
           : ''
       } ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >

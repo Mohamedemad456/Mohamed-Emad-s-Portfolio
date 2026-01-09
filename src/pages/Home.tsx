@@ -61,34 +61,37 @@ const Home = () => {
           {/* Availability badge */}
           <motion.div
             variants={itemVariants}
-            className="mb-6 inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-xs backdrop-blur"
+            className="mb-6 inline-flex items-center justify-center gap-2 rounded-full border border-border bg-bg/70 px-4 py-2 text-sm font-semibold text-text shadow-xs backdrop-blur"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green" />
             </span>
             Available for opportunities
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="flex flex-col items-center justify-center"
           >
-            <span className="bg-linear-to-r from-cyan-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="text-5xl md:text-7xl font-bold mb-4 text-text">
+              Mohamed Emad
+            </span>
+            <span className="text-2xl md:text-4xl font-bold mb-6 text-purple-dark">
               Full Stack Developer
             </span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-base md:text-lg text-slate-500 mb-3"
+            className="text-base md:text-lg text-textSecondary mb-3"
           >
             React • Next.js • Node.js • TypeScript
           </motion.p>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-text mb-8 max-w-3xl mx-auto"
           >
             Building modern, scalable web applications with clean code and
             exceptional user experiences
@@ -111,13 +114,12 @@ const Home = () => {
             className="relative mt-10 h-20 w-full max-w-3xl overflow-hidden hidden sm:block"
           >
             {[
-              { label: 'Clean UI', x: '8%', y: '10%', c: 'border-cyan-200 bg-cyan-50 text-cyan-700' },
-              { label: 'Fast Performance', x: '30%', y: '55%', c: 'border-slate-200 bg-white text-slate-700' },
-              { label: 'SEO Ready', x: '58%', y: '8%', c: 'border-purple-200 bg-purple-50 text-purple-700' },
-              { label: 'Accessible', x: '78%', y: '52%', c: 'border-emerald-200 bg-emerald-50 text-emerald-700' },
+              { label: 'Clean UI', x: '8%', y: '10%', c: 'border-green-light bg-green-light text-green-dark' },
+              { label: 'Fast Performance', x: '30%', y: '55%', c: 'border-border bg-bg text-text' },
+              { label: 'SEO Ready', x: '58%', y: '8%', c: 'border-purple-light bg-purple-light text-purple-dark' },
+              { label: 'Accessible', x: '78%', y: '52%', c: 'border-green-light bg-green-light text-green-dark' },
             ].map((pill, idx) => (
               <motion.div
-                // eslint-disable-next-line react/no-array-index-key
                 key={idx}
                 className={`absolute rounded-full border px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold shadow-xs whitespace-nowrap ${pill.c}`}
                 style={{ 
@@ -151,11 +153,13 @@ const Home = () => {
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="flex items-center justify-center w-16 h-16 bg-cyan-50 rounded-full mb-4"
+                  className={`flex items-center justify-center w-16 h-16 rounded-full mb-4 ${
+                    index % 2 === 0 ? 'bg-green-light' : 'bg-purple-light'
+                  }`}
                 >
-                  <tech.icon className="w-8 h-8 text-cyan-600" />
+                  <tech.icon className={`w-8 h-8 ${index % 2 === 0 ? 'text-green-dark' : 'text-purple-dark'}`} />
                 </motion.div>
-                <h3 className="text-lg font-semibold text-slate-800">
+                <h3 className="text-lg font-semibold text-text">
                   {tech.name}
                 </h3>
               </Card>
@@ -176,10 +180,10 @@ const Home = () => {
           {highlights.map((highlight, index) => (
             <motion.div key={highlight.title} variants={itemVariants}>
               <Card delay={index * 0.1} className="text-center h-full">
-                <h3 className="text-xl font-bold text-cyan-600 mb-2">
+                <h3 className="text-xl font-bold mb-2 text-purple-dark">
                   {highlight.title}
                 </h3>
-                <p className="text-slate-600">{highlight.description}</p>
+                <p className="text-textSecondary">{highlight.description}</p>
               </Card>
             </motion.div>
           ))}
